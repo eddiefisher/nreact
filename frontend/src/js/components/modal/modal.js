@@ -1,3 +1,5 @@
+// http://marcio.github.io/react-skylight/ - origin module
+
 import React from 'react';
 import styles from './styles';
 
@@ -9,31 +11,31 @@ class Modal extends React.Component {
   }
 
   componentWillUpdate(nextProps, nextState) {
-      if (nextState.isVisible && !this.state.isVisible && this.props.beforeOpen) {
-          this.props.beforeOpen();
-      }
+    if (nextState.isVisible && !this.state.isVisible && this.props.beforeOpen) {
+      this.props.beforeOpen();
+    }
 
-      if (!nextState.isVisible && this.state.isVisible && this.props.beforeClose) {
-          this.props.beforeClose();
-      }
+    if (!nextState.isVisible && this.state.isVisible && this.props.beforeClose) {
+      this.props.beforeClose();
+    }
   }
 
   componentDidUpdate(prevProps, prevState) {
-      if (!prevState.isVisible && this.state.isVisible && this.props.afterOpen) {
-          this.props.afterOpen();
-      }
+    if (!prevState.isVisible && this.state.isVisible && this.props.afterOpen) {
+      this.props.afterOpen();
+    }
 
-      if (prevState.isVisible && !this.state.isVisible && this.props.afterClose) {
-          this.props.afterClose();
-      }
+    if (prevState.isVisible && !this.state.isVisible && this.props.afterClose) {
+      this.props.afterClose();
+    }
   }
 
   show() {
-      this.setState({isVisible: true});
+    this.setState({isVisible: true});
   }
 
   hide() {
-      this.setState({isVisible: false});
+    this.setState({isVisible: false});
   }
 
   onOverlayClicked() {
